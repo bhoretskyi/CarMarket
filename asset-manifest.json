@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CarMarket/static/css/main.7acaea2f.css",
+    "main.js": "/CarMarket/static/js/main.65c456f0.js",
+    "index.html": "/CarMarket/index.html",
+    "main.7acaea2f.css.map": "/CarMarket/static/css/main.7acaea2f.css.map",
+    "main.65c456f0.js.map": "/CarMarket/static/js/main.65c456f0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.65c456f0.js"
+  ]
+}
