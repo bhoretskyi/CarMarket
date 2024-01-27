@@ -17,7 +17,7 @@ export const Home = () => {
 
     <footer>
         <p>&copy; 2024 Car Rental in Ukraine</p>
-    </footer>
+    </footer> 
     </>
 
     )
