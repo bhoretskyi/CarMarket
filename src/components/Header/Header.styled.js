@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 export const HeaderLogo = styled.h1`
-  color: #121417;
+  padding-top: 20px;
+padding-bottom: 20px;
 
   font-size: 40px;
   font-style: normal;
