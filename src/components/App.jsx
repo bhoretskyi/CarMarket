@@ -1,3 +1,4 @@
+
 import { Routes, Route } from "react-router-dom";
 import { Home } from "pages/Home";
 import { NotFound } from "pages/NotFound";
@@ -11,6 +12,7 @@ export const App = () => {
         <Route path="/products" element={<Products />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-   </>
-  );
+   </>)
+
+
 };
