@@ -1,16 +1,12 @@
+import { Layout } from "./Layout/Layout";
+const SectionTest = () => {
+  return (
+    <div><h1>hello react</h1></div>
+  )
+}
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: 'orangered'
-      }}
-    >
-      React homework template
-    </div>
+    <Layout Propy={SectionTest}></Layout>
+    
   );
 };
