@@ -1,8 +1,6 @@
 export const Home = () => {
     return (<>
-       <header>
-        <h1>Car Rental in Ukraine</h1>
-    </header>
+       
 
     <section>
         <h2>Our Services</h2>
@@ -15,9 +13,7 @@ export const Home = () => {
         </ul>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Car Rental in Ukraine</p>
-    </footer> 
+    
     </>
 
     )

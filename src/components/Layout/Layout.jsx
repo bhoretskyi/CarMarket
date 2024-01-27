@@ -1,12 +1,16 @@
+import { Footer } from "components/Footer/Footer";
+import { Header } from "components/Header/Header";
+import { Suspense } from "react";
+import { Outlet } from 'react-router-dom';
 
-
-export const Layout = ({Propy}) => {
-    return (<div>
-        <header>
-            <h1>header</h1>
-        </header>
-        <Propy/>
-        </div>
-        
-    )
-}
+export const Layout = () => {
+  return (
+    <>
+      <Header/>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+      <Footer/>
+    </>
+  );
+};
