@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/CarMarket/static/css/main.7acaea2f.css",
-    "main.js": "/CarMarket/static/js/main.992bf540.js",
+    "main.css": "/CarMarket/static/css/main.f21410f8.css",
+    "main.js": "/CarMarket/static/js/main.81cbebbd.js",
     "index.html": "/CarMarket/index.html",
-    "main.7acaea2f.css.map": "/CarMarket/static/css/main.7acaea2f.css.map",
-    "main.992bf540.js.map": "/CarMarket/static/js/main.992bf540.js.map"
+    "main.f21410f8.css.map": "/CarMarket/static/css/main.f21410f8.css.map",
+    "main.81cbebbd.js.map": "/CarMarket/static/js/main.81cbebbd.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.992bf540.js"
+    "static/css/main.f21410f8.css",
+    "static/js/main.81cbebbd.js"
   ]
 }
