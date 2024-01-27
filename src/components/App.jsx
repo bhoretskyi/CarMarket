@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "pages/Home";
 // import { NotFound } from "pages/NotFound";
 import { Layout } from "./Layout/Layout";
+import { Catalog } from "pages/Catalog";
 
 export const App = () => {
   return (
@@ -10,9 +11,7 @@ export const App = () => {
     <Routes>
     <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} /> */}
-        {/* <Route path="*" element={<NotFound />} /> */}
+          <Route path="/catalog" element={<Catalog />} />
         </Route>
       </Routes>
    </>)
