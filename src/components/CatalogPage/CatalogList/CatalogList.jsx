@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { nanoid } from 'nanoid'
 import { useEffect, useState } from 'react';
 import { List, Image } from './CatalogList.styled';
 
@@ -22,7 +23,7 @@ export const CatalogList = () => {
   return (
     <List>
       {adverts.map(ad => (
-        <li key={ad.id}>
+        <li key={nanoid()}>
           <Image src={ad.img || ad.photoLink} alt={ad.description} />
           <p> {ad.make}</p>
           <p> {ad.model}</p>
