@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { List, Image } from './CatalogList.styled';
 
 export const CatalogList = () => {
   const [adverts, setAdverts] = useState([]);
@@ -19,15 +20,16 @@ export const CatalogList = () => {
     fetchData();
   }, []);
   return (
-    <ul>
+    <List>
       {adverts.map(ad => (
         <li key={ad.id}>
+          <Image src={ad.img || ad.photoLink} alt={ad.description} />
           <p> {ad.make}</p>
           <p> {ad.model}</p>
           <p> {ad.year}</p>
           <p> {ad.rentalPrice}</p>
         </li>
       ))}
-    </ul>
+    </List>
   );
 };
