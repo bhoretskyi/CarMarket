@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/CarMarket/static/css/main.9a0c8f0a.css",
-    "main.js": "/CarMarket/static/js/main.4db6e435.js",
+    "main.js": "/CarMarket/static/js/main.c1033131.js",
     "static/media/brand-logo.jpg": "/CarMarket/static/media/brand-logo.1d5b9fa1e88fae55901a.jpg",
     "static/media/_secure payment method 2.jpg": "/CarMarket/static/media/6021218a7ef6777e149cfc0b_secure payment method 2.7490eaec4f2d4874449e.jpg",
     "static/media/1217-hero-the-pros-and-cons-of-a-short-term-car-lease.avif": "/CarMarket/static/media/1217-hero-the-pros-and-cons-of-a-short-term-car-lease.14c4695d80497e6c71f6.avif",
     "index.html": "/CarMarket/index.html",
     "main.9a0c8f0a.css.map": "/CarMarket/static/css/main.9a0c8f0a.css.map",
-    "main.4db6e435.js.map": "/CarMarket/static/js/main.4db6e435.js.map"
+    "main.c1033131.js.map": "/CarMarket/static/js/main.c1033131.js.map"
   },
   "entrypoints": [
     "static/css/main.9a0c8f0a.css",
-    "static/js/main.4db6e435.js"
+    "static/js/main.c1033131.js"
   ]
 }
