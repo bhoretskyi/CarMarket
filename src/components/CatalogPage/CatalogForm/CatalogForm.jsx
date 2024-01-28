@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { FormSection } from './CatalogForm.styled';
 
 export const CatalogForm = () => {
   const formik = useFormik({
@@ -13,7 +14,7 @@ export const CatalogForm = () => {
     },
   });
   return (
-    <>
+    <><FormSection>
       <form onSubmit={formik.handleSubmit}>
         <label htmlFor="brand">Car brand</label>
         <input
@@ -53,6 +54,7 @@ export const CatalogForm = () => {
 
         <button type="submit">Search</button>
       </form>
+      </FormSection>
     </>
   );
 };

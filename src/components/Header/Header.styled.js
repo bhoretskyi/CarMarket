@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 export const HeaderLogo = styled.h1`
+font-family: 'Manrope';
+
   padding-top: 20px;
 padding-bottom: 20px;
 

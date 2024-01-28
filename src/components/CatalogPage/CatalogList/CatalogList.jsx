@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
-import { List, Image } from './CatalogList.styled';
+import { List, Image, ListItem, CarListCardContainer, CarTitle, CarModel } from './CatalogList.styled';
 
 export const CatalogList = () => {
   const [adverts, setAdverts] = useState([]);
@@ -23,13 +23,17 @@ export const CatalogList = () => {
   return (
     <List>
       {adverts.map(ad => (
-        <li key={nanoid()}>
+        <ListItem key={nanoid()}>
           <Image src={ad.img || ad.photoLink} alt={ad.description} />
-          <p> {ad.make}</p>
-          <p> {ad.model}</p>
-          <p> {ad.year}</p>
-          <p> {ad.rentalPrice}</p>
-        </li>
+          <CarListCardContainer>
+            <CarTitle>
+              {ad.make}
+              <CarModel> {ad.model}</CarModel>, {ad.year}
+            </CarTitle>
+
+            <CarTitle> {ad.rentalPrice}</CarTitle>
+          </CarListCardContainer>
+        </ListItem>
       ))}
     </List>
   );
