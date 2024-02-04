@@ -20,6 +20,10 @@ export const CatalogList = () => {
   const [adverts, setAdverts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   // const [itemsPerPage, setItemsPerPage] = useState(12);
+  const [likeList, setLikeList] = useState(() => {
+    const storedLikeList = localStorage.getItem('likeList');
+    return storedLikeList ? JSON.parse(storedLikeList) : [];
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,15 +36,25 @@ export const CatalogList = () => {
     };
     fetchData();
   }, [currentPage]);
-
-  // const totalPages = Math.ceil(adverts.length / itemsPerPage);
+  useEffect(() => {
+    const addLike = () => {};
+    addLike();
+  }, [likeList]);
   const handleLoadMore = () => {
     setCurrentPage(prevPage => prevPage + 1);
   };
 
-  const handleHeartClick = (event) => {
-    console.log('Heart clicked');
-    console.log(event.target.parentElement.parentElement.parentElement.id)
+  const handleHeartClick = event => {
+    const grandparentWithId = event.target.closest('[id]');
+    if (likeList.includes(grandparentWithId.id)) {
+      const index = likeList.indexOf(grandparentWithId.id);
+      const newList = [...likeList];
+      newList.splice(index, 1);
+      setLikeList(newList);
+      return;
+    }
+    setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
+    localStorage.setItem('likeList', JSON.stringify(likeList));
   };
   return (
     <>
