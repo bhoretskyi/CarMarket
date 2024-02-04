@@ -5,15 +5,29 @@ display: flex;
 flex-wrap: wrap;
 gap: 29px;
 `
-
+export const ImageContainer = styled.div`
+ position: relative;
+  display: inline-block;
+`
 export const Image = styled.img`
+/* position: relative; */
 width: 274px;
 height:268px;
 margin-bottom:14px;
 border-radius: 14px;
 background: linear-gradient(180deg, rgba(18, 20, 23, 0.50) 2.5%, rgba(18, 20, 23, 0.00) 41.07%), #F3F3F2;
 `
+export const HeartSvgStyled = styled.img`  
 
+
+`
+export const HeartButton = styled.button`
+top: 14px;
+left: 242px;
+position: absolute;
+border: none;
+background: none;
+`
 export const ListItem = styled.li`
 display: flex;
 width: 274px;
@@ -58,3 +72,4 @@ export const ButtonWrapper = styled.div`
 display: flex;
 justify-content: center;
 `
+
