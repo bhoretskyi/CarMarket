@@ -1,26 +1,42 @@
-import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
-import { List, Image, ListItem, CarListCardContainer, CarTitle, CarModel } from './CatalogList.styled';
+import {
+  List,
+  Image,
+  ListItem,
+  CarListCardContainer,
+  CarTitle,
+  CarModel,
+  LoadButton,
+  ButtonWrapper,
+} from './CatalogList.styled';
+import { getCars } from 'api';
 
 export const CatalogList = () => {
   const [adverts, setAdverts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  // const [itemsPerPage, setItemsPerPage] = useState(12);
+ 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          'https://65aed74a1dfbae409a759cc3.mockapi.io/adverts?page=1&limit=12'
-        );
-        console.log(response.data);
-        setAdverts(response.data);
+        const resp = await getCars(currentPage);
+        setAdverts((prevAdverts) => [...prevAdverts, ...resp]);
       } catch (error) {
         console.error('Error:', error);
       }
     };
-
     fetchData();
-  }, []);
+  }, [currentPage]);
+ 
+
+  // const totalPages = Math.ceil(adverts.length / itemsPerPage);
+  const handleLoadMore = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
   return (
+    <>
     <List>
       {adverts.map(ad => (
         <ListItem key={nanoid()}>
@@ -36,5 +52,9 @@ export const CatalogList = () => {
         </ListItem>
       ))}
     </List>
+    <ButtonWrapper>
+    <LoadButton type='button' onClick={handleLoadMore}>Load more</LoadButton>
+    </ButtonWrapper>
+    </>
   );
 };

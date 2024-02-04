@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const FooterSection = styled.footer`
 font-family: 'Manrope';
+background: white;
 
 border: 1px solid black;
 padding-top: 10px;

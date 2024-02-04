@@ -44,3 +44,17 @@ line-height: 1.5 ;
 export const CarModel = styled.span`
 color: #3470FF;
 `
+
+export const LoadButton = styled.button`
+font-size: 16px;
+line-height: calc(16 / 24 * 100%);
+display: block;
+margin-bottom: 100px;
+color: #3470FF;
+border: none;
+background: none;
+`
+export const ButtonWrapper = styled.div`
+display: flex;
+justify-content: center;
+`
