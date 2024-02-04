@@ -9,7 +9,7 @@ export const CatalogList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          'https://65aed74a1dfbae409a759cc3.mockapi.io/adverts'
+          'https://65aed74a1dfbae409a759cc3.mockapi.io/adverts?page=1&limit=12'
         );
         console.log(response.data);
         setAdverts(response.data);
