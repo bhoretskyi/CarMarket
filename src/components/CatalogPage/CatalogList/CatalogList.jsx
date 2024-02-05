@@ -19,7 +19,6 @@ import { getCars } from 'api';
 export const CatalogList = () => {
   const [adverts, setAdverts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  // const [itemsPerPage, setItemsPerPage] = useState(12);
   const [likeList, setLikeList] = useState(() => {
     const storedLikeList = localStorage.getItem('likeList');
     return storedLikeList ? JSON.parse(storedLikeList) : [];
@@ -37,7 +36,11 @@ export const CatalogList = () => {
     fetchData();
   }, [currentPage]);
   useEffect(() => {
-    const addLike = () => {};
+    const addLike = () => {
+      localStorage.setItem('likeList', JSON.stringify(likeList));
+
+      console.log(likeList);
+    };
     addLike();
   }, [likeList]);
   const handleLoadMore = () => {
@@ -54,7 +57,6 @@ export const CatalogList = () => {
       return;
     }
     setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
-    localStorage.setItem('likeList', JSON.stringify(likeList));
   };
   return (
     <>
