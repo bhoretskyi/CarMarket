@@ -18,7 +18,7 @@ border-radius: 14px;
 background: linear-gradient(180deg, rgba(18, 20, 23, 0.50) 2.5%, rgba(18, 20, 23, 0.00) 41.07%), #F3F3F2;
 `
 export const HeartSvgStyled = styled.img`  
-
+color: black
 
 `
 export const HeartButton = styled.button`

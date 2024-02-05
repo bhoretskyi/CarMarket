@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 import heartSvg from '../../img/svg/heart.svg';
+import heartActive from '../../img/svg/heart,active.svg'
 import {
   List,
   Image,
@@ -39,7 +40,6 @@ export const CatalogList = () => {
     const addLike = () => {
       localStorage.setItem('likeList', JSON.stringify(likeList));
 
-      console.log(likeList);
     };
     addLike();
   }, [likeList]);
@@ -58,6 +58,12 @@ export const CatalogList = () => {
     }
     setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
   };
+  const isHeartActive = (id) => {
+    const stringId = id + ''
+   return  likeList.includes(stringId) ? heartActive : heartSvg
+   
+  }
+  
   return (
     <>
       <List>
@@ -65,7 +71,7 @@ export const CatalogList = () => {
           <ListItem key={nanoid()} id={ad.id}>
             <ImageContainer>
               <HeartButton type="button" onClick={handleHeartClick}>
-                <HeartSvgStyled src={heartSvg} alt="Heart Icon" width="20" />
+                <HeartSvgStyled src={isHeartActive(ad.id)} alt="Heart Icon" width="20" color='black' />
               </HeartButton>
 
               <Image src={ad.img || ad.photoLink} alt={ad.description} />
