@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useEffect, useState } from 'react';
 import heartSvg from '../../img/svg/heart.svg';
-import heartActive from '../../img/svg/heart,active.svg'
+import heartActive from '../../img/svg/heart,active.svg';
 import {
   List,
   Image,
@@ -29,6 +29,7 @@ export const CatalogList = () => {
     const fetchData = async () => {
       try {
         const resp = await getCars(currentPage);
+        console.log(resp);
         setAdverts(prevAdverts => [...prevAdverts, ...resp]);
       } catch (error) {
         console.error('Error:', error);
@@ -39,7 +40,6 @@ export const CatalogList = () => {
   useEffect(() => {
     const addLike = () => {
       localStorage.setItem('likeList', JSON.stringify(likeList));
-
     };
     addLike();
   }, [likeList]);
@@ -58,12 +58,16 @@ export const CatalogList = () => {
     }
     setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
   };
-  const isHeartActive = (id) => {
-    const stringId = id + ''
-   return  likeList.includes(stringId) ? heartActive : heartSvg
-   
-  }
-  
+  const isHeartActive = id => {
+    const stringId = id + '';
+    return likeList.includes(stringId) ? heartActive : heartSvg;
+  };
+
+  const splitAddressFromString = (adString, index) => {
+    const splitedAddress = adString.split(',');
+    return splitedAddress[index];
+  };
+
   return (
     <>
       <List>
@@ -71,7 +75,12 @@ export const CatalogList = () => {
           <ListItem key={nanoid()} id={ad.id}>
             <ImageContainer>
               <HeartButton type="button" onClick={handleHeartClick}>
-                <HeartSvgStyled src={isHeartActive(ad.id)} alt="Heart Icon" width="20" color='black' />
+                <HeartSvgStyled
+                  src={isHeartActive(ad.id)}
+                  alt="Heart Icon"
+                  width="20"
+                  color="black"
+                />
               </HeartButton>
 
               <Image src={ad.img || ad.photoLink} alt={ad.description} />
@@ -84,6 +93,18 @@ export const CatalogList = () => {
 
               <CarTitle> {ad.rentalPrice}</CarTitle>
             </CarListCardContainer>
+            <ul>
+              <li>{splitAddressFromString(ad.address, 1)}</li>
+              <li>{splitAddressFromString(ad.address, 2)}</li>
+              <li>{ad.rentalCompany}</li>
+              <li>Premium</li>
+            </ul>
+            <ul>
+              <li>{ad.type}</li>
+              <li>{ad.model}</li>
+              <li>{ad.mileage}</li>
+              <li>{ad.functionalities[1]}</li>
+            </ul>
           </ListItem>
         ))}
       </List>
