@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { FormSection } from './CatalogForm.styled';
+import { Form, FormElement, FormSection, Input, Label, SubmitButton } from './CatalogForm.styled';
 
 export const CatalogForm = () => {
   const formik = useFormik({
@@ -15,9 +15,10 @@ export const CatalogForm = () => {
   });
   return (
     <><FormSection>
-      <form onSubmit={formik.handleSubmit}>
-        <label htmlFor="brand">Car brand</label>
-        <input
+      <Form onSubmit={formik.handleSubmit}>
+        <FormElement>
+        <Label htmlFor="brand">Car brand</Label>
+        <Input
           id="brand"
           name="brand"
           type="text"
@@ -25,17 +26,20 @@ export const CatalogForm = () => {
           placeholder="Enter the text"
           value={formik.values.brand}
         />
-        <label htmlFor="price">Price/ 1 hour</label>
-        <input
+        </FormElement>
+        <FormElement>
+        <Label htmlFor="price">Price/ 1 hour</Label>
+        <Input
           id="price"
           name="price"
           type="text"
           onChange={formik.handleChange}
           placeholder="To $"
           value={formik.values.price}
-        />
-        <label htmlFor="mileage">Сar mileage / km</label>
-        <input
+        /></FormElement>
+        <FormElement>
+        <Label htmlFor="mileage">Сar mileage / km</Label>
+        <Input
           id="mileage"
           name="mileage"
           type="text"
@@ -43,7 +47,9 @@ export const CatalogForm = () => {
           placeholder="From"
           value={formik.values.mileage}
         />
-        <input
+        
+        </FormElement>
+        <Input
           id="mileageTo"
           name="mileageTo"
           type="text"
@@ -51,9 +57,10 @@ export const CatalogForm = () => {
           placeholder="To"
           value={formik.values.mileageTo}
         />
+       
 
-        <button type="submit">Search</button>
-      </form>
+        <SubmitButton type="submit">Search</SubmitButton>
+      </Form>
       </FormSection>
     </>
   );
