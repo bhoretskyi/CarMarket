@@ -12,14 +12,13 @@ width: 100%;
 
 export const Form = styled.form`
   display: flex;
-  align-items: flex-end;
+  
   flex-direction: column;
   @media screen and (min-width: 833px) {
+    align-items: flex-end;
     flex-direction: row;
   }
-  @media screen and (min-width: 1440px) {
-   
-  }
+ 
 `;
 export const FormElement = styled.div`
   display: flex;
@@ -38,6 +37,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
+ width: ${props => props.width};
   border: none;
   border-radius: 14px;
   height: 48px;

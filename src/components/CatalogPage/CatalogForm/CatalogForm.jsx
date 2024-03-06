@@ -25,6 +25,7 @@ export const CatalogForm = () => {
           onChange={formik.handleChange}
           placeholder="Enter the text"
           value={formik.values.brand}
+          width={'224px'}
         />
         </FormElement>
         <FormElement>
@@ -36,6 +37,7 @@ export const CatalogForm = () => {
           onChange={formik.handleChange}
           placeholder="To $"
           value={formik.values.price}
+          width={'125px'}
         /></FormElement>
         <FormElement>
         <Label htmlFor="mileage">Сar mileage / km</Label>
@@ -46,6 +48,7 @@ export const CatalogForm = () => {
           onChange={formik.handleChange}
           placeholder="From"
           value={formik.values.mileage}
+          width={'160px'}
         />
         
         </FormElement>
@@ -56,6 +59,7 @@ export const CatalogForm = () => {
           onChange={formik.handleChange}
           placeholder="To"
           value={formik.values.mileageTo}
+          width={'160px'}
         />
        
 
