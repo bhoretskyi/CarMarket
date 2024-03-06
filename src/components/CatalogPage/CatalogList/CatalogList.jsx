@@ -14,54 +14,65 @@ import {
   HeartSvgStyled,
   ImageContainer,
   HeartButton,
+  CarInfoList,
+  CarInfoListItem,
+  CarListSection
 } from './CatalogList.styled';
 import { getCars } from 'api';
 
 export const CatalogList = () => {
   const [adverts, setAdverts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [likeList, setLikeList] = useState(() => {
-    const storedLikeList = localStorage.getItem('likeList');
-    return storedLikeList ? JSON.parse(storedLikeList) : [];
-  });
+  // const [likeList, setLikeList] = useState(() => {
+  //   const storedLikeList = localStorage.getItem('likeList');
+  //   return storedLikeList ? JSON.parse(storedLikeList) : [];
+  // });
 
+ 
+  // useEffect(() => {
+  //   const addLike = () => {
+      
+  //     localStorage.setItem('likeList', JSON.stringify(likeList));
+  //   };
+  //   addLike();
+  // },
+  //  [likeList]
+  //  );
   useEffect(() => {
     const fetchData = async () => {
       try {
         const resp = await getCars(currentPage);
-        console.log(resp);
         setAdverts(prevAdverts => [...prevAdverts, ...resp]);
+        console.log(resp);
+
       } catch (error) {
         console.error('Error:', error);
       }
     };
-    fetchData();
+   
+      fetchData();
+   
+    
   }, [currentPage]);
-  useEffect(() => {
-    const addLike = () => {
-      localStorage.setItem('likeList', JSON.stringify(likeList));
-    };
-    addLike();
-  }, [likeList]);
   const handleLoadMore = () => {
-    setCurrentPage(prevPage => prevPage + 1);
+    // setCurrentPage(prevPage => prevPage + 1);
   };
 
-  const handleHeartClick = event => {
-    const grandparentWithId = event.target.closest('[id]');
-    if (likeList.includes(grandparentWithId.id)) {
-      const index = likeList.indexOf(grandparentWithId.id);
-      const newList = [...likeList];
-      newList.splice(index, 1);
-      setLikeList(newList);
-      return;
-    }
-    setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
-  };
-  const isHeartActive = id => {
-    const stringId = id + '';
-    return likeList.includes(stringId) ? heartActive : heartSvg;
-  };
+  // const handleHeartClick = event => {
+  //   const grandparentWithId = event.target.closest('[id]');
+  //   if (likeList.includes(grandparentWithId.id)) {
+  //     const index = likeList.indexOf(grandparentWithId.id);
+  //     const newList = [...likeList];
+  //     newList.splice(index, 1);
+  //     setLikeList(newList);
+  //     return;
+  //   }
+  //   setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
+  // };
+  // const isHeartActive = id => {
+  //   const stringId = id + '';
+  //   return likeList.includes(stringId) ? heartActive : heartSvg;
+  // };
 
   const splitAddressFromString = (adString, index) => {
     const splitedAddress = adString.split(',');
@@ -70,18 +81,19 @@ export const CatalogList = () => {
 
   return (
     <>
+    <CarListSection>
       <List>
         {adverts.map(ad => (
           <ListItem key={nanoid()} id={ad.id}>
             <ImageContainer>
-              <HeartButton type="button" onClick={handleHeartClick}>
+              {/* <HeartButton type="button" onClick={handleHeartClick}>
                 <HeartSvgStyled
                   src={isHeartActive(ad.id)}
                   alt="Heart Icon"
                   width="20"
                   color="black"
                 />
-              </HeartButton>
+              </HeartButton> */}
 
               <Image src={ad.img || ad.photoLink} alt={ad.description} />
             </ImageContainer>
@@ -93,21 +105,22 @@ export const CatalogList = () => {
 
               <CarTitle> {ad.rentalPrice}</CarTitle>
             </CarListCardContainer>
-            <ul>
-              <li>{splitAddressFromString(ad.address, 1)}</li>
-              <li>{splitAddressFromString(ad.address, 2)}</li>
-              <li>{ad.rentalCompany}</li>
-              <li>Premium</li>
-            </ul>
-            <ul>
-              <li>{ad.type}</li>
-              <li>{ad.model}</li>
-              <li>{ad.mileage}</li>
-              <li>{ad.functionalities[1]}</li>
-            </ul>
+            <CarInfoList>
+              <CarInfoListItem>{splitAddressFromString(ad.address, 1)}</CarInfoListItem>
+              <CarInfoListItem>{splitAddressFromString(ad.address, 2)}</CarInfoListItem>
+              <CarInfoListItem>{ad.rentalCompany}</CarInfoListItem>
+              {/* <CarInfoListItem>Premium</CarInfoListItem> */}
+            </CarInfoList>
+            <CarInfoList>
+              <CarInfoListItem>{ad.type}</CarInfoListItem>
+              <CarInfoListItem>{ad.model}</CarInfoListItem>
+              <CarInfoListItem>{ad.mileage}</CarInfoListItem>
+              <CarInfoListItem>{ad.accessories.sort((a, b) => a.length - b.length)[0].split(' ').slice(0, 2).join(' ') }</CarInfoListItem>
+            </CarInfoList>
           </ListItem>
         ))}
       </List>
+      </CarListSection>
       <ButtonWrapper>
         <LoadButton type="button" onClick={handleLoadMore}>
           Load more
