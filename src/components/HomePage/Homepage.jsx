@@ -27,19 +27,19 @@ export const HomePage = () => {
       <StyledHomeList>
         <StyledHomeListItem>
           A diverse selection of cars, from economy to premium class.
-          <img src={image} alt="cars" width='300' height='200' />
+          <img src={image} alt="cars" width='250' height='200' />
         </StyledHomeListItem>
         <StyledHomeListItem>
           Flexible rental rates and convenient rental terms.
-          <img src={image2} alt="cars" width='300' height='200' />
+          <img src={image2} alt="cars" width='250' height='200' />
         </StyledHomeListItem>
         <StyledHomeListItem>
           24/7 support and roadside assistance.
-          <img src={image3} alt="cars" width='300' height='200' />
+          <img src={image3} alt="cars" width='250' height='200' />
         </StyledHomeListItem>
         <StyledHomeListItem>
           Secure and convenient payment methods.
-          <img src={image4} alt="cars" width='300' height='200' />
+          <img src={image4} alt="cars" width='250' height='200' />
         </StyledHomeListItem>
       </StyledHomeList>
       <HomeButton type='button'><StyledLink to='/catalog'>Find your car</StyledLink></HomeButton>
