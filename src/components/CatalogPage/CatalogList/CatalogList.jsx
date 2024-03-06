@@ -16,7 +16,9 @@ import {
   HeartButton,
   CarInfoList,
   CarInfoListItem,
-  CarListSection
+  CarListSection,
+  LearnMoreBtn,
+  CarInfoListSection
 } from './CatalogList.styled';
 import { getCars } from 'api';
 
@@ -105,6 +107,7 @@ export const CatalogList = () => {
 
               <CarTitle> {ad.rentalPrice}</CarTitle>
             </CarListCardContainer>
+            <CarInfoListSection>
             <CarInfoList>
               <CarInfoListItem>{splitAddressFromString(ad.address, 1)}</CarInfoListItem>
               <CarInfoListItem>{splitAddressFromString(ad.address, 2)}</CarInfoListItem>
@@ -117,6 +120,8 @@ export const CatalogList = () => {
               <CarInfoListItem>{ad.mileage}</CarInfoListItem>
               <CarInfoListItem>{ad.accessories.sort((a, b) => a.length - b.length)[0].split(' ').slice(0, 2).join(' ') }</CarInfoListItem>
             </CarInfoList>
+            </CarInfoListSection>
+            <LearnMoreBtn type='button'>Learn more</LearnMoreBtn>
           </ListItem>
         ))}
       </List>

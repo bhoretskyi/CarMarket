@@ -2,13 +2,15 @@ import styled from 'styled-components';
 
 export const List = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 50px 29px;
 `;
 export const ImageContainer = styled.div`
   position: relative;
   display: inline-block;
+  width: 274px ;
+  height: 268px;
 `;
 export const Image = styled.img`
   /* position: relative; */
@@ -34,12 +36,14 @@ export const HeartButton = styled.button`
   background: none;
 `;
 export const ListItem = styled.li`
+position: relative;
   display: flex;
   width: 274px;
   height: 426px;
   flex-direction: column;
   align-items: flex-start;
   flex-shrink: 0;
+  
 `;
 export const CarListCardContainer = styled.div`
   width: 100%;
@@ -63,7 +67,7 @@ export const CarModel = styled.span`
 `;
 
 export const CarInfoList = styled.ul`
-/* max-width: 100%; */
+  /* max-width: 100%; */
   display: flex;
   gap: 6px;
   color: rgba(18, 20, 23, 0.5);
@@ -72,14 +76,15 @@ export const CarInfoList = styled.ul`
   line-height: 1.5;
   white-space: nowrap;
   
+ 
+
   :not(:last-child) {
-  border-right: 1px solid rgba(18, 20, 23, 0.5);}
+    border-right: 1px solid rgba(18, 20, 23, 0.5);
+  }
 `;
 export const CarInfoListItem = styled.li`
-/* width: 100% */
-padding-right: 6px;
-
-
+  /* width: 100% */
+  padding-right: 6px;
 `;
 
 export const LoadButton = styled.button`
@@ -96,7 +101,50 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
 `;
 export const CarListSection = styled.section`
-margin: 0 auto;
-padding: 0 128px 0 128px;
+  margin: 0 auto;
+  padding: 0 128px 0 128px;
+`;
 
+export const LearnMoreBtn = styled.button`
+
+  /* _ Main button */
+  position: absolute;
+  bottom: 0;
+  width: 274px;
+  height: 44px;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 99px 12px 99px;
+
+  /* Inside Auto Layout */
+
+  border-radius: 12px;
+  border: none;
+
+  background: rgb(52, 112, 255);
+  color: rgb(255, 255, 255);
+font-family: Manrope;
+font-size: 14px;
+font-weight: 600;
+line-height: 20px;
+text-align: left;
+
+  &:hover
+  {
+    background: rgb(11, 68, 205);
+    transition: all 0.3s ease 0s;
+  }
+  &:focus {
+    background: rgb(11, 68, 205);
+
+  }
+
+`;
+
+
+export const CarInfoListSection = styled.section `
+margin-bottom: 28px;
 `
