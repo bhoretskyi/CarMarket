@@ -23,21 +23,21 @@ import { getCars } from 'api';
 export const CatalogList = () => {
   const [adverts, setAdverts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  // const [likeList, setLikeList] = useState(() => {
-  //   const storedLikeList = localStorage.getItem('likeList');
-  //   return storedLikeList ? JSON.parse(storedLikeList) : [];
-  // });
+  const [likeList, setLikeList] = useState(() => {
+    const storedLikeList = localStorage.getItem('likeList');
+    return storedLikeList ? JSON.parse(storedLikeList) : [];
+  });
 
  
-  // useEffect(() => {
-  //   const addLike = () => {
+  useEffect(() => {
+    const addLike = () => {
       
-  //     localStorage.setItem('likeList', JSON.stringify(likeList));
-  //   };
-  //   addLike();
-  // },
-  //  [likeList]
-  //  );
+      localStorage.setItem('likeList', JSON.stringify(likeList));
+    };
+    addLike();
+  },
+   [likeList]
+   );
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -55,24 +55,24 @@ export const CatalogList = () => {
     
   }, [currentPage]);
   const handleLoadMore = () => {
-    // setCurrentPage(prevPage => prevPage + 1);
+    setCurrentPage(prevPage => prevPage + 1);
   };
 
-  // const handleHeartClick = event => {
-  //   const grandparentWithId = event.target.closest('[id]');
-  //   if (likeList.includes(grandparentWithId.id)) {
-  //     const index = likeList.indexOf(grandparentWithId.id);
-  //     const newList = [...likeList];
-  //     newList.splice(index, 1);
-  //     setLikeList(newList);
-  //     return;
-  //   }
-  //   setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
-  // };
-  // const isHeartActive = id => {
-  //   const stringId = id + '';
-  //   return likeList.includes(stringId) ? heartActive : heartSvg;
-  // };
+  const handleHeartClick = event => {
+    const grandparentWithId = event.target.closest('[id]');
+    if (likeList.includes(grandparentWithId.id)) {
+      const index = likeList.indexOf(grandparentWithId.id);
+      const newList = [...likeList];
+      newList.splice(index, 1);
+      setLikeList(newList);
+      return;
+    }
+    setLikeList(prevLikeList => [...prevLikeList, grandparentWithId.id]);
+  };
+  const isHeartActive = id => {
+    const stringId = id + '';
+    return likeList.includes(stringId) ? heartActive : heartSvg;
+  };
 
   const splitAddressFromString = (adString, index) => {
     const splitedAddress = adString.split(',');
@@ -86,14 +86,14 @@ export const CatalogList = () => {
         {adverts.map(ad => (
           <ListItem key={nanoid()} id={ad.id}>
             <ImageContainer>
-              {/* <HeartButton type="button" onClick={handleHeartClick}>
+              <HeartButton type="button" onClick={handleHeartClick}>
                 <HeartSvgStyled
                   src={isHeartActive(ad.id)}
                   alt="Heart Icon"
                   width="20"
                   color="black"
                 />
-              </HeartButton> */}
+              </HeartButton>
 
               <Image src={ad.img || ad.photoLink} alt={ad.description} />
             </ImageContainer>
