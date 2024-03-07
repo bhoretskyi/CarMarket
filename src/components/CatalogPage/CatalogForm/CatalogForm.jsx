@@ -1,7 +1,9 @@
 import { useFormik } from 'formik';
-import { Form, FormElement, FormSection, Input, Label, SubmitButton } from './CatalogForm.styled';
+import { Form, FormElement, FormSection, Input, Label, Select, SubmitButton, } from './CatalogForm.styled';
+import makes from '../../../makes.json'
 
 export const CatalogForm = () => {
+ 
   const formik = useFormik({
     initialValues: {
       brand: '',
@@ -18,15 +20,20 @@ export const CatalogForm = () => {
       <Form onSubmit={formik.handleSubmit}>
         <FormElement>
         <Label htmlFor="brand">Car brand</Label>
-        <Input
-          id="brand"
-          name="brand"
-          type="text"
-          onChange={formik.handleChange}
-          placeholder="Enter the text"
-          value={formik.values.brand}
-          width={'224px'}
-        />
+        <Select
+              id="brand"
+              name="brand"
+              onChange={formik.handleChange}
+              value={formik.values.brand}
+              width={'224px'}
+            >
+              <option value="">Select a brand</option>
+              {makes.map((make, index) => (
+                <option key={index} value={make}>
+                  {make}
+                </option>
+              ))}
+            </Select>
         </FormElement>
         <FormElement>
         <Label htmlFor="price">Price/ 1 hour</Label>

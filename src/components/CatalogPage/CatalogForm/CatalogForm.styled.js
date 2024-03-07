@@ -61,6 +61,38 @@ text-align: left;
 }
 
 `;
+export const Select = styled.select`
+ width: ${props => props.width};
+  border: none;
+  border-radius: 14px;
+  height: 48px;
+
+  background: rgb(247, 247, 251);
+  color: rgb(18, 20, 23);
+font-family: 'Manrope';
+font-size: 18px;
+font-weight: 500;
+line-height: 20px;
+text-align: left;
+option {
+  border: none;
+  background: transparent;
+	border-radius: 14px;
+	
+  }
+&::placeholder {
+    opacity: 1;
+    color: rgb(18, 20, 23);
+font-family: 'Manrope';
+font-size: 18px;
+font-weight: 500;
+line-height: 20px;
+letter-spacing: 0%;
+text-align: left;
+
+}
+
+`;
 
 export const SubmitButton = styled.button`
   border-radius: 12px;
